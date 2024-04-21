@@ -1,0 +1,23 @@
+{
+  "name": "qr_code-_component",
+  "version": "1.0.0",
+  "description": "![Design preview for the QR code component coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "dependencies": {
+    "html5-qrcode": "^2.3.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EndrexAkoto/QR_code-_component.git"
+  },
+  "author": "Endrex Akoto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EndrexAkoto/QR_code-_component/issues"
+  },
+  "homepage": "https://github.com/EndrexAkoto/QR_code-_component#readme"
+}

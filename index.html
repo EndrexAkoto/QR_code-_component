@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>QR Code Scanner</title>
+
+  <!-- Import the html5-qrcode library -->
+  <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
+
+
+  <style>
+    body { font-family: Arial, sans-serif; align-items: center; text-align: center; display: flex; justify-content: center; height: 100vh; flex-direction: column; }
+    #reader { width: 300px; }
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <h1>Scan the QR Code</h1>
+  <div id="reader"></div>
+  <div id="reader" width="600px"></div>
+
+  <script>
+    function onScanSuccess(decodedText, decodedResult) {
+        console.log(`Code matched = ${decodedText}`, decodedResult);
+        // Handle on success condition with the decoded message.
+    }
+
+    function onScanError(errorMessage) {
+        // handle on error condition, with error message
+        console.log(errorMessage);
+    }
+
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader", { fps: 10, qrbox: 250 });
+    html5QrcodeScanner.render(onScanSuccess, onScanError);
+  </script>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Endrex Martin Akoto</a>.
+  </div>
+</body>
+</html>
