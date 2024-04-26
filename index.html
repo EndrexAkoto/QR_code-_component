@@ -9,27 +9,60 @@
   <!-- Import the html5-qrcode library -->
   <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
 
-
   <style>
-    body { font-family: Arial, sans-serif; align-items: center; text-align: center; display: flex; justify-content: center; height: 100vh; flex-direction: column; }
-    #reader { width: 300px; }
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; /* Aligns children elements (h1, #reader, .attribution) vertically */
+      height: 100vh;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #reader {
+      width: 300px;
+      height: 300px;
+      border: 5px solid #333;
+      padding: 15px;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px; /* Space between scanner and attribution */
+    }
+
+    .attribution {
+      font-size: 12px;
+      text-align: center;
+      color: #666;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+      text-decoration: none;
+    }
+
+    .attribution a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
   <h1>Scan the QR Code</h1>
   <div id="reader"></div>
-  <div id="reader" width="600px"></div>
 
   <script>
     function onScanSuccess(decodedText, decodedResult) {
         console.log(`Code matched = ${decodedText}`, decodedResult);
-        // Handle on success condition with the decoded message.
     }
 
     function onScanError(errorMessage) {
-        // handle on error condition, with error message
         console.log(errorMessage);
     }
 
