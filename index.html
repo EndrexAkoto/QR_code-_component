@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <title>QR Code Scanner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <!-- Import the html5-qrcode library -->
-  <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | QR code component</title>
 
   <style>
+    /* CSS for styling and centering */
     body {
       font-family: 'Arial', sans-serif;
       margin: 0;
@@ -17,30 +21,56 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column; /* Aligns children elements (h1, #reader, .attribution) vertically */
       height: 100vh;
       background-color: #f4f4f4;
       color: #333;
     }
-    
-    h1 {
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .qr-code-bg {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .qr-code {
       margin-bottom: 20px;
     }
 
-    #reader {
-      width: 300px;
-      height: 300px;
-      border: 5px solid #333;
-      padding: 15px;
-      background: white;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-bottom: 20px; /* Space between scanner and attribution */
+    .qr-code-image {
+      width: 150px; /* Adjust size as needed */
+      height: 150px; /* Adjust size as needed */
+    }
+
+    .qr-code-info h2 {
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
+
+    .qr-code-info p {
+      font-size: 1em;
+      color: #666;
     }
 
     .attribution {
       font-size: 12px;
       text-align: center;
       color: #666;
+      margin-top: 20px;
     }
 
     .attribution a {
@@ -54,26 +84,24 @@
   </style>
 </head>
 <body>
-  <h1>Scan the QR Code</h1>
-  <div id="reader"></div>
 
-  <script>
-    function onScanSuccess(decodedText, decodedResult) {
-        console.log(`Code matched = ${decodedText}`, decodedResult);
-    }
+  <main class="container">
+    <div class="card">
+        <div class="qr-code-bg">
+            <div class="qr-code">
+                <img class="qr-code-image" src="./images/image-qr-code.png" alt="QR Code Image">
+            </div>
+            <div class="qr-code-info">
+                <h2>Improve your front-end skills by building projects</h2>
+                <p>Scan the QR Code to visit FrontEnd Mentor and take your coding skills to the next level</p>
+            </div>
+        </div>
+    </div>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Endrex Martin Akoto</a>.
+    </div>
+  </main>
 
-    function onScanError(errorMessage) {
-        console.log(errorMessage);
-    }
-
-    var html5QrcodeScanner = new Html5QrcodeScanner(
-        "reader", { fps: 10, qrbox: 250 });
-    html5QrcodeScanner.render(onScanSuccess, onScanError);
-  </script>
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Endrex Martin Akoto</a>.
-  </div>
 </body>
 </html>
